@@ -7,3 +7,7 @@
 meteor-platform
 autopublish
 insecure
+accounts-password
+accounts-base
+accounts-ui-unstyled
+accounts-ui
