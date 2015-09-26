@@ -1,23 +1,16 @@
-if (Meteor.isClient) {
-  // counter starts at 0
-  Session.setDefault('counter', 0);
+if (Meteor.isClient){console.log("line 1");
+  Template.register.events({
+      'submit': function(event){
+        console.log("line 4");
+          event.preventDefault();
+          var email = $('[name=email]').val();
+          var password = $('[name=password]').val();
 
-  Template.hello.helpers({
-    counter: function () {
-      return Session.get('counter');
-    }
-  });
+          Accounts.createUser({
+            email: email,
+            password: password
+          });
 
-  Template.hello.events({
-    'click button': function () {
-      // increment the counter when button is clicked
-      Session.set('counter', Session.get('counter') + 1);
-    }
-  });
-}
-
-if (Meteor.isServer) {
-  Meteor.startup(function () {
-    // code to run on server at startup
+      }
   });
 }

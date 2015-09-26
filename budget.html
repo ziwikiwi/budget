@@ -1,14 +1,34 @@
 <head>
-  <title>budget</title>
+  <title>The IdolH@ckster's Budget App</title>
+  <link rel="stylesheet" type="text/css" href="budget.css">
 </head>
 
 <body>
-  <h1>Welcome to Meteor!</h1>
+<center>
+	<div id="intro">
+  		<h1>Budget Planner Thing</h1>
+	</div>
+	    {{> register}}
+   
 
-  {{> hello}}
+</center>
+
+  
 </body>
 
 <template name="hello">
   <button>Click Me</button>
   <p>You've pressed the button {{counter}} times.</p>
 </template>
+
+<template name= "register">
+	<form id="register" action="action">
+     	 <div>
+        	<h6>Email</h6><input type="email" id="login-email" name="email" placeholder="abc@123.com" /><br>
+        	<h6>Password</h6><input type="password" id="login-password" name="password" placeholder="********"/><br>
+        	<input type="submit" id="login-button" value="Register" />
+     	</div>
+   </form> 
+</template>
+
+
