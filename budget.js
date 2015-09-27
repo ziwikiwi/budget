@@ -1,9 +1,12 @@
 
+
 Router.route('/register');
 Router.route('/login');
 Router.route('/',{
   template:'register'
 });
+Router.route('/create');
+Router.route('/view');
 Router.route('/home');
 if (Meteor.isClient){
   console.log("line 1");
@@ -38,5 +41,7 @@ if (Meteor.isClient){
         });
     }
 });
+
+
 
 }
