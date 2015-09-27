@@ -1,0 +1,33 @@
+General Fund (01):34593755
+TOTAL GENERAL FUND:34593755
+Water (60):5539137
+Airport (65):3217230
+Refuse & Recycling (07):2006040
+TOTAL ENTERPRISE FUNDS:10762407
+Capital Projects (50):325706
+Public Safety Building (51):772279
+Motor Fuel Tax (10):1320841
+Central Area Tax Increment Financing District #1 (13):6489189
+Tax Increment Financing District #2 (14):1538612
+Fleet Replacement (52):601500
+Equipment (53):163000
+TOTAL CAPITAL PROJECTS FUNDS:11211127
+Economic Development (05):240613
+Transportation (09):9805350
+Housing Rehabilitation (18):26000
+Community Development Block Grant (19):408847
+Foreign Fire Insurance Tax (94):45000
+TOTAL OTHER FUNDS:10525810
+Workers Compensation (70):1204525
+Health Insurance (71):5984620
+Property & Liability Insurance (72):145000
+TOTAL INTERNAL SERVICE FUNDS:7334145
+Heritage Ridge Special Service Area #3 (23):0
+Knolls Subdivision Special Service Area #4 (24):1600
+Heartland Fields Special Service Area #14 (25):2500
+Greek Row Special Service Area #6 (26):5100
+TOTAL SPECIAL SERVICE AREA FUNDS:9200
+General Fund Debt Service (40):1909100
+Tax Increment Financing Debt Service (45):1063975
+TOTAL DEBT SERVICE FUNDS:2973075
+GRAND TOTAL REVENUES:77409519

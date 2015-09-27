@@ -1,0 +1,42 @@
+Expenses - Dekalb 2015
+
+General Fund (01): 35,137,508
+TOTAL GENERAL FUND: 35,137,508
+
+Water (60): 5,646,744
+Airport (65): 3,353,570
+Refuse & Recycling (07): 1,998,979
+TOTAL ENTERPRISE FUNDS: 10,999,293
+
+Capital Projects (50): 450,000
+Public Safety Building (51): 993,400
+Motor Fuel Tax (10): 868,000
+Central Area Tax Increment Financing District #1 (13): 7,341,942
+Tax Increment Financing District #2 (14): 1,781,062
+Fleet Replacement (52): 602,049
+Equipment (53): 165,000
+TOTAL CAPITAL PROJECTS FUNDS: 12,201,453
+
+Economic Development (05): 293,926
+Transportation (09): 9,805,350
+Housing Rehabilitation (18): 26,000
+Community Development Block Grant (19): 458,847
+Foreign Fire Insurance Tax (94): 46,616
+TOTAL OTHER FUNDS: 10,630,739
+
+Workers Compensation (70): 1,303,755
+Health Insurance (71): 5,990,651
+Property & Liability Insurance (72): 129,970
+TOTAL INTERNAL SERVICE FUNDS: 7,424,375
+
+Heritage Ridge Special Service Area #3 (23): 1,200
+Knolls Subdivision Special Service Area #4 (24): 3,500
+Heartland Fields Special Service Area #14 (25): 1,500
+Greek Row Special Service Area #6 (26): 19,500
+TOTAL SPECIAL SERVICE AREA FUNDS: 25,700
+
+General Fund Debt Service (40): 1,909,100
+Tax Increment Financing Debt Service (45): 1,063,975
+TOTAL DEBT SERVICE FUNDS: 2,973,075
+
+GRAND TOTAL EXPENDITURES: 79,392,143
