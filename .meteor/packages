@@ -13,3 +13,5 @@ accounts-ui-unstyled
 accounts-ui
 iron:router
 themeteorchef:jquery-validation
+maazalik:highcharts
+em0ney:chartjs

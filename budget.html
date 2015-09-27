@@ -97,7 +97,11 @@
 			   <li><a href={{pathFor route='register'}}>Log Out</a></li>
 			</ul>
 	</div>
+    {{>containers}}
 </template>
 
+<template name="containers">
+    <canvas id="chartCanvasId" width="500" height="500"></canvas>
+</template>
 
 
