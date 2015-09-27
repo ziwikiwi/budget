@@ -16,7 +16,7 @@
 <template name= "register">
 	<center>
 	<div id="intro">
-  		<h1>Budget Planner Thing</h1>
+  		<h1>Budget Planner</h1>
 	</div>
 </center>
 	<center>
@@ -37,7 +37,7 @@
 <template name= "login">
 	<center>
 	<div id="intro">
-  		<h1>Budget Planner Thing</h1>
+  		<h1>Budget Planner</h1>
 	</div>
 </center>
 	<center>
@@ -53,7 +53,7 @@
 <template name= "home">
 	<center>
 	<div id="intro">
-  		<h1>Welcome!</h1>
+  		<h1>Current Budget</h1>
 	</div>
 	</center>
 	<div id='cssmenu'>
@@ -64,6 +64,8 @@
 			   <li><a href={{pathFor route='register'}}>Log Out</a></li>
 			</ul>
 	</div>
+
+    {{>containers}}
 </template>
 
 <template name= "create">
@@ -81,6 +83,31 @@
 			   <li><a href={{pathFor route='register'}}>Log Out</a></li>
 			</ul>
 	</div>
+    <br>
+    <label for = "q1">Question 1</label><br>
+    <input type="range" min="0" max="10" value="5" id="q1" step="0.1" oninput="outputUpdate(value, id)">
+    <output for = "q1" id = "q1Data">5</output><br>
+
+
+    <label for = "q2">Question 2</label><br>
+    <input type="range" min="0" max="10" value="5" id="q2" step="0.1" oninput="outputUpdate(value, id)">
+    <output for = "q1" id = "q2Data">5</output><br>
+
+    <label for = "q3">Question 3</label><br>
+    <input type="range" min="0" max="10" value="5" id="q3" step="0.1" oninput="outputUpdate(value, id)">
+    <output for = "q1" id = "q3Data">5</output><br>
+
+    <label for = "q4">Question 4</label><br>
+    <input type="range" min="0" max="10" value="5" id="q4" step="0.1" oninput="outputUpdate(value, id)">
+    <output for = "q1" id = "q4Data">5</output><br>
+
+    <label for = "q5">Question 5</label><br>
+    <input type="range" min="0" max="10" value="5" id="q5" step="0.1" oninput="outputUpdate(value, id)">
+    <output for = "q1" id = "q5Data">5</output><br>
+
+    <label for = "q6">Question 6</label><br>
+    <input type="range" min="0" max="10" value="5" id="q6" step="0.1" oninput="outputUpdate(value, id)">
+    <output for = "q1" id = "q6Data">5</output><br>
 </template>
 
 <template name= "view">
@@ -101,7 +128,11 @@
 </template>
 
 <template name="containers">
+   <br><br>
+    <h2>Total Revenues&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Total Expenses</h2>
     <canvas id="chartCanvasId" width="500" height="500"></canvas>
+
+    <canvas id="expCanvasId" width="500" height="500"></canvas>
 </template>
 
 

@@ -1,11 +1,12 @@
 /* CSS declarations go here */
 body{
 	  font-family: 'Georgia';
-  background-image: url("https://newevolutiondesigns.com/images/freebies/city-wallpaper-32.jpg"); 
+  background-image: url("https://newevolutiondesigns.com/images/freebies/city-wallpaper-32.jpg");
   -webkit-background-size: 100% auto;
   -moz-background-size: 100% auto;
   background-size: 100% auto;
   color: #444;
+
   width:100%;
   height:100%;
 
@@ -42,6 +43,11 @@ form>div{
 	border:3px solid #6666FF;
 	background:rgba(226, 241, 255,0.5);
 }
+h2{
+	margin-left:150px;
+}
+
+
 h6{
 	font-family: Arial;
 	font-size:25px;

@@ -29,15 +29,21 @@ if (Meteor.isClient) {
     var RevChartData;
     var PieChart;
 
+
+
+
     Tracker.autorun(function () {
+
+
         if (h_expenses.ready()) {
             if (expCategory == "")
                 expData = Expenses.find().fetch();
             else
                 expData = Expenses.find({"id": expCategory}).fetch();
             ExpChartData = expData.map(function (data) {
-                return {label: data.Category, value: data.Amount};
+                return {label: data.Category, value: data.Amount, color: "#66CCCC"};
             });
+            console.log(ExpChartData);
         }
         if (h_revenues.ready()) {
             if (revCategory == "")
@@ -45,12 +51,9 @@ if (Meteor.isClient) {
             else
                 revData = Revenues.find({"id": revCategory}).fetch();
             RevChartData = revData.map(function (data) {
-                return {name: data.Category, y: data.Amount};
+                return {label: data.Category, value: data.Amount, color:"#FFCCFF"};
             });
 
-            var canvas = $("#chartCanvasId")[0];
-            var context = canvas.getContext("2d");
-            PieChart = new Chart(context).Pie(RevChartData);
         }
     })
 
@@ -143,7 +146,30 @@ if (Meteor.isClient) {
     });
 
     Template.containers.rendered = function () {
+        var canvas = $("#chartCanvasId")[0];
+        console.log(canvas);
+        var context = canvas.getContext("2d");
+        console.log(context);
+        var options = {
+            tooltipTemplate: function(label){return  label.label + ": " + '$' + label.value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");}
+        }
+        PieChart = new Chart(context).Pie(RevChartData, options);
+        console.log(PieChart);
+        console.log(RevChartData);
         window.piechart = PieChart;
+
+        var canvas2 = $("#expCanvasId")[0];
+        console.log(canvas2);
+        var context2 = canvas2.getContext("2d");
+        console.log(context2);
+        var options2 = {
+            tooltipTemplate: function(label){return  label.label + ": " + '$' + label.value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");}
+        }
+        PieChart2 = new Chart(context2).Pie(ExpChartData, options2);
+        console.log(PieChart2);
+        console.log(ExpChartData);
+        window.piechart = PieChart2;
+
     };
 }
     if (Meteor.isServer) {
