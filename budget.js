@@ -1,4 +1,5 @@
-
+Expenses = Meteor.Collection('expenses');
+Reveneues = Meteor.Collection('revenues');
 
 
 Router.route('/login');
