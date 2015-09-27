@@ -16,6 +16,21 @@ if (Meteor.isClient){
     console.log("The 'login' template was just created.");
 });
 
+    var h_expenses = Meteor.subscribe('expenses');
+    var h_revenues = Meteor.subscribe('revenues');
+
+    var expData;
+    var revData;
+
+    Tracker.autorun(function() {
+        if(h_expenses.ready()) {
+            expData = Expenses.find().fetch();
+        }
+        if(h_revenues.ready()) {
+            revData = Expenses.find().fetch();
+        }
+    })
+
 Template.login.onRendered(function(){
     $('.login').validate({
         submitHandler: function(event){
@@ -107,6 +122,15 @@ Template.login.onDestroyed(function(){
     }
 });
 
-
+if(Meteor.isServer) {
+    Meteor.startup(function() {
+        Meteor.publish('expenses', function() {
+            return Expenses.find();
+        });
+        Meteor.publish('revenues', function() {
+            return Expenses.find();
+        });
+    })
+}
 
 }
