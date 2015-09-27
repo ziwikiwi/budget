@@ -22,12 +22,21 @@ if (Meteor.isClient){
     var expData;
     var revData;
 
+    var expCategory;
+    var revCategory;
+
     Tracker.autorun(function() {
         if(h_expenses.ready()) {
-            expData = Expenses.find().fetch();
+            if (expCategory == "")
+                expData = Expenses.find().fetch();
+            else
+                expData = Expenses.find({"id":expCategory}).fetch();
         }
         if(h_revenues.ready()) {
-            revData = Expenses.find().fetch();
+            if (revCategory == "")
+                revData = Expenses.find().fetch();
+            else
+                revData = Expenses.find({"id":revCategory}).fetch();
         }
     })
 
