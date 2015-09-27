@@ -1,4 +1,8 @@
-if (Meteor.isClient){console.log("line 1");
+
+Router.route('/register');
+Router.route('/login');
+if (Meteor.isClient){
+  console.log("line 1");
   Template.register.events({
       'submit': function(event){
         console.log("line 4");
@@ -9,8 +13,9 @@ if (Meteor.isClient){console.log("line 1");
           Accounts.createUser({
             email: email,
             password: password
-          });
-
+          })
       }
+      
   });
+
 }

@@ -8,11 +8,7 @@
 	<div id="intro">
   		<h1>Budget Planner Thing</h1>
 	</div>
-	    {{> register}}
-   
-
 </center>
-
   
 </body>
 
@@ -22,13 +18,31 @@
 </template>
 
 <template name= "register">
+	<center>
 	<form id="register" action="action">
      	 <div>
         	<h6>Email</h6><input type="email" id="login-email" name="email" placeholder="abc@123.com" /><br>
         	<h6>Password</h6><input type="password" id="login-password" name="password" placeholder="********"/><br>
+
         	<input type="submit" id="login-button" value="Register" />
+        	<h6><a id="redir-login" href="/login">Already have an account?</a></h6>
+     	</div>
+     	
+   </form> 
+   
+</center>
+</template>
+
+<template name= "login">
+	<center>
+	<form id="login" action="action">
+     	 <div>
+        	<h6>Email</h6><input type="email" id="login-email" name="email" placeholder="abc@123.com" /><br>
+        	<h6>Password</h6><input type="password" id="login-password" name="password" placeholder="********"/><br>
+        	<input type="submit" id="login-button" value="Login" />
      	</div>
    </form> 
+</center>
 </template>
 
 

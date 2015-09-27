@@ -11,3 +11,4 @@ accounts-password
 accounts-base
 accounts-ui-unstyled
 accounts-ui
+iron:router
