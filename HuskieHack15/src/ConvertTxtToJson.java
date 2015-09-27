@@ -5,16 +5,18 @@ import java.io.*;
 
 public class ConvertTxtToJson 
 {
-	public static JSONObject convert(String input) throws FileNotFoundException
+	public static JSONArray convert(String input) throws FileNotFoundException
 	{
 		 FileInputStream fstream = new FileInputStream(input);
 		 DataInputStream in = new DataInputStream(fstream);
          BufferedReader br = new BufferedReader(new InputStreamReader(in));
          
+         /*
+         //For JS readin
+        
 		 JSONObject result= new JSONObject();
-		 JSONObject totalresult = new JSONObject();
 		 JSONObject subresults = new JSONObject();
-		 
+		       
          String strLine;
          try
          {
@@ -23,10 +25,8 @@ public class ConvertTxtToJson
         		 if (strLine.equals(strLine.toUpperCase()))
         		 {
         			 String[] tokens = strLine.split(":");
-        			 totalresult.put (tokens[1], subresults);
-        			 result.put(tokens[0], totalresult);
+        			 result.put(tokens[0], subresults);
         			 
-        			 totalresult = new JSONObject();
         			 subresults= new JSONObject();
         		 }
         		 else
@@ -36,23 +36,58 @@ public class ConvertTxtToJson
         			 System.out.println("Successful subadd.");
         		 }
         	 }
-        		 
-        		 /*
-        		 if (strLine.contains(":"))
+         }
+	
+         catch (JSONException j) {System.out.println("Error in conversion - JSON");}
+         catch (IOException i) {System.out.println("Error in conversion - IO");}
+     
+         return result;
+         */
+         
+         //For MongoDB read-in
+         JSONArray result = new JSONArray();
+         JSONObject category = new JSONObject(); //Overarching JSON object for the subcategory
+         JSONObject subcategory = new JSONObject();
+         
+         String strLine;
+         int count = 0;
+         
+         try
+         {
+        	 while ((strLine = br.readLine()) != null)   
+        	 {
+        		 if (strLine.equals(strLine.toUpperCase()))
         		 {
-        			 String[] tokens = strLine.split(":");
-        			 result.put(tokens[0], Integer.parseInt(tokens[1].trim()));
+        			 String[] tokens= strLine.split(":");
+        			 category.put("Category", tokens[0]);
+        			 category.put("Amount", tokens[1]);
+        			 
+        			 result.put(category);
+        			 
+        			 category = new JSONObject();
+        			 count = 0;
         		 }
-        		 */
+        		 else
+        		 {
+        			 String[] subTokens = strLine.split(":");
+        			 subcategory = new JSONObject();
+        			 
+        			 subcategory.put("Subcat Name", subTokens[0]);
+        			 subcategory.put("Subcat Amount", subTokens[1]);
+        			 
+        			 category.put("Subcategory"  + count, subcategory);		
+        			 count++;
+        		 }
+        	 }
          }
          catch (JSONException j) {System.out.println("Error in conversion - JSON");}
          catch (IOException i) {System.out.println("Error in conversion - IO");}
-
+         
          System.out.println(result);
          return result;
     }
 	
-	public static void writeJSON(JSONObject obj, String fileName)
+	public static void writeJSON(JSONArray obj, String fileName)
 	{
 		try
 		{
@@ -67,11 +102,15 @@ public class ConvertTxtToJson
 
 	public static void main(String[] args) throws FileNotFoundException
 	{
-		JSONObject revenues = convert("Revenues - Dekalb 2015.txt");
-		JSONObject expenses = convert("Expenses - Dekalb 2015.txt");
 		
-		writeJSON(revenues, "revenues.json");
-		writeJSON(expenses, "expenses.json");
+		// JSONObject revenues = convert("Revenues - Dekalb 2015.txt");
+		// JSONObject expenses = convert("Expenses - Dekalb 2015.txt");
+		
+		JSONArray revenues = convert("Revenues - Dekalb 2015.txt");
+		JSONArray expenses = convert("Expenses - Dekalb 2015.txt");	
+
+		writeJSON(revenues, "revenuesDB.json");
+		writeJSON(expenses, "expensesDB.json");
 	}
 }
 
