@@ -46,7 +46,16 @@ form>div{
 h2{
 	margin-left:150px;
 }
-
+label{
+	background: rgba(226, 241, 255,0.5);
+}
+#create-button{
+	border:2px solid darkslategray;
+	background: rgba(226, 241, 255,0.5);
+	font-size:20px;
+	color: black;
+	font-family:Georgia;
+}
 
 h6{
 	font-family: Arial;

@@ -11,6 +11,7 @@ Router.route('/create');
 Router.route('/view');
 Router.route('/home');
 Router.route('/logout');
+Router.route('/makegraphs');
 if (Meteor.isClient) {
     Template.login.onCreated(function () {
         console.log("The 'login' template was just created.");
@@ -29,6 +30,8 @@ if (Meteor.isClient) {
     var RevChartData;
     var PieChart;
 
+    var isCustom = false;
+
 
 
 
@@ -37,9 +40,11 @@ if (Meteor.isClient) {
 
         if (h_expenses.ready()) {
             if (expCategory == "")
-                expData = Expenses.find().fetch();
+                expData = Expenses.find({"Category": {$ne: "GRAND TOTAL EXPENDITURES"}}).fetch();
             else
-                expData = Expenses.find({"id": expCategory}).fetch();
+                expData = Expenses.find({"Category": {$ne: "GRAND TOTAL EXPENDITURES"}}).fetch();
+
+
             ExpChartData = expData.map(function (data) {
                 return {label: data.Category, value: data.Amount, color: "#66CCCC"};
             });
@@ -47,9 +52,9 @@ if (Meteor.isClient) {
         }
         if (h_revenues.ready()) {
             if (revCategory == "")
-                revData = Revenues.find().fetch();
+                revData = Revenues.find({"Category": {$ne: "GRAND TOTAL REVENUES"}}).fetch();
             else
-                revData = Revenues.find({"id": revCategory}).fetch();
+                revData = Revenues.find({"Category": {$ne: "GRAND TOTAL REVENUES"}}).fetch();
             RevChartData = revData.map(function (data) {
                 return {label: data.Category, value: data.Amount, color:"#FFCCFF"};
             });
@@ -145,18 +150,56 @@ if (Meteor.isClient) {
         }
     });
 
-    Template.containers.rendered = function () {
-        var canvas = $("#chartCanvasId")[0];
-        console.log(canvas);
-        var context = canvas.getContext("2d");
-        console.log(context);
-        var options = {
-            tooltipTemplate: function(label){return  label.label + ": " + '$' + label.value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");}
+    Template.makegraphs.events({
+        'submit': function(event){
+            console.log("made it to makegraphs function");
+            var tgf = $('[name="tgf"]').val();
+            var tof = $('[name="tof"]').val();
+            var tef = $('[name="tef"]').val();
+            var tdsf = $('[name="tdsf"]').val();
+            var tisf = $('[name="tisf"]').val();
+            var tcp = $('[name="tcp"]').val();
+
+            ExpChartData = 0;
+            ExpChartData = [
+                {
+                    label:"Total General Funds",
+                    value:tgf,
+                    color:"#FFCCFF"
+                },
+                {
+                    label:"Total Outstanding Funds",
+                     value:tof,
+                 color:"#FFCCFF"
+                },
+                {
+                label:"Total Expenditure Funds",
+                value: tef,
+                color:"#FFCCFF"
+
+            },
+                {
+                  label:"Total Debt Service Funds",
+                    value: tdsf,
+                    color:"#FFCCFF"
+                },
+                {
+                    label:"Total Internal Service Funds",
+                    value: tisf,
+                    color:"#FFCCFF"
+                },
+                {
+                    label:"Total Capital Projects",
+                    value: tcp,
+                    color:"#FFCCFF"
+                }
+
+            ]
+
+
         }
-        PieChart = new Chart(context).Pie(RevChartData, options);
-        console.log(PieChart);
-        console.log(RevChartData);
-        window.piechart = PieChart;
+    });
+    Template.containers.rendered = function () {
 
         var canvas2 = $("#expCanvasId")[0];
         console.log(canvas2);
@@ -169,6 +212,20 @@ if (Meteor.isClient) {
         console.log(PieChart2);
         console.log(ExpChartData);
         window.piechart = PieChart2;
+
+        var canvas = $("#chartCanvasId")[0];
+        console.log(canvas);
+        var context = canvas.getContext("2d");
+        console.log(context);
+        var options = {
+            tooltipTemplate: function(label){return  label.label + ": " + '$' + label.value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");}
+        }
+        PieChart = new Chart(context).Pie(RevChartData, options);
+        console.log(PieChart);
+        console.log(RevChartData);
+        window.piechart = PieChart;
+
+
 
     };
 }

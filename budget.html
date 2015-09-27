@@ -83,31 +83,8 @@
 			   <li><a href={{pathFor route='register'}}>Log Out</a></li>
 			</ul>
 	</div>
-    <br>
-    <label for = "q1">Question 1</label><br>
-    <input type="range" min="0" max="10" value="5" id="q1" step="0.1" oninput="outputUpdate(value, id)">
-    <output for = "q1" id = "q1Data">5</output><br>
-
-
-    <label for = "q2">Question 2</label><br>
-    <input type="range" min="0" max="10" value="5" id="q2" step="0.1" oninput="outputUpdate(value, id)">
-    <output for = "q1" id = "q2Data">5</output><br>
-
-    <label for = "q3">Question 3</label><br>
-    <input type="range" min="0" max="10" value="5" id="q3" step="0.1" oninput="outputUpdate(value, id)">
-    <output for = "q1" id = "q3Data">5</output><br>
-
-    <label for = "q4">Question 4</label><br>
-    <input type="range" min="0" max="10" value="5" id="q4" step="0.1" oninput="outputUpdate(value, id)">
-    <output for = "q1" id = "q4Data">5</output><br>
-
-    <label for = "q5">Question 5</label><br>
-    <input type="range" min="0" max="10" value="5" id="q5" step="0.1" oninput="outputUpdate(value, id)">
-    <output for = "q1" id = "q5Data">5</output><br>
-
-    <label for = "q6">Question 6</label><br>
-    <input type="range" min="0" max="10" value="5" id="q6" step="0.1" oninput="outputUpdate(value, id)">
-    <output for = "q1" id = "q6Data">5</output><br>
+    {{>makegraphs}}
+    {{>containers}}
 </template>
 
 <template name= "view">
@@ -134,5 +111,34 @@
 
     <canvas id="expCanvasId" width="500" height="500"></canvas>
 </template>
+<template name="makegraphs">
+    <br>
+    <form id="Custom Budget" action="action">
+    <label for = "q1">Total General Fund</label><br>
+    <input type="range" min="0" max="10" value="5" id="q1" step="0.1" name = "tgf" >
+    <output for = "q1" id = "q1Data">5</output><br>
 
+
+    <label for = "q2">Total Other Funds</label><br>
+    <input type="range" min="0" max="10" value="5" id="q2" step="0.1" name = "tof" >
+    <output for = "q1" id = "q2Data">5</output><br>
+
+    <label for = "q3">Total Enterprise Funds</label><br>
+    <input type="range" min="0" max="10" value="5" id="q3" step="0.1" name = "tef" >
+    <output for = "q1" id = "q3Data">5</output><br>
+
+    <label for = "q4">Total Debt Service Funds</label><br>
+    <input type="range" min="0" max="10" value="5" id="q4" step="0.1" name = "tdsf" >
+    <output for = "q1" id = "q4Data">5</output><br>
+
+    <label for = "q5">Total Internal Service Funds</label><br>
+    <input type="range" min="0" max="10" value="5" id="q5" step="0.1" name = "tisf" >
+    <output for = "q1" id = "q5Data">5</output><br>
+
+    <label for = "q6">Total Capital Projects</label><br>
+    <input type="range" min="0" max="10" value="5" id="q6" step="0.1" name = "tcp" >
+    <output for = "q1" id = "q6Data">5</output><br>
+    <input type="submit" id="create-button" value="Make" />
+        </form>
+</template>
 
