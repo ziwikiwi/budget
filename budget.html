@@ -22,8 +22,8 @@
 	<center>
 	<form id="register" action="action">
      	 <div>
-        	<h6>Email</h6><input type="email" id="login-email" name="email" placeholder="abc@123.com" /><br>
-        	<h6>Password</h6><input type="password" id="login-password" name="password" placeholder="********"/><br>
+        	<h6>Email</h6><input type="email" id="login-email" name="email" placeholder="abc@123.com" required/><br>
+        	<h6>Password</h6><input type="password" id="login-password" name="password" placeholder="********" required/><br>
 
         	<input type="submit" id="login-button" value="Register" />
         	<h6><a id="redir-login" href="/login">Already have an account?</a></h6>
@@ -43,8 +43,8 @@
 	<center>
 	<form id="login" action="action">
      	 <div>
-        	<h6>Email</h6><input type="email" id="login-email" name="email" placeholder="abc@123.com" /><br>
-        	<h6>Password</h6><input type="password" id="login-password" name="password" placeholder="********"/><br>
+        	<h6>Email</h6><input type="email" id="login-email" name="email" placeholder="abc@123.com" required/><br>
+        	<h6>Password</h6><input type="password" id="login-password" name="password" placeholder="********" required/><br>
         	<input type="submit" id="login-button" value="Login" />
      	</div>
    </form> 
@@ -61,7 +61,7 @@
 			   <li><a href='/home'>Home</a></li>
 			   <li><a href='/create'>Create a Budget</a></li>
 			   <li><a href='/view'>View Created Budgets</a></li>
-			   <li><a href='/logout'>Log Out</a></li>
+			   <li><a href={{pathFor route='register'}}>Log Out</a></li>
 			</ul>
 	</div>
 </template>
@@ -78,7 +78,7 @@
 			   <li><a href='/home'>Home</a></li>
 			   <li><a href='/create'>Create a Budget</a></li>
 			   <li><a href='/view'>View Created Budgets</a></li>
-			   <li><a href='/logout'>Log Out</a></li>
+			   <li><a href={{pathFor route='register'}}>Log Out</a></li>
 			</ul>
 	</div>
 </template>
@@ -94,7 +94,7 @@
 			   <li><a href='/home'>Home</a></li>
 			   <li><a href='/create'>Create a Budget</a></li>
 			   <li><a href='/view'>View Created Budgets</a></li>
-			   <li><a href='/logout'>Log Out</a></li>
+			   <li><a href={{pathFor route='register'}}>Log Out</a></li>
 			</ul>
 	</div>
 </template>
